@@ -1,0 +1,36 @@
+
+/* @font-face {
+  font-family: 'Montserrat';
+  src: local('Montserrat'), url(./assets/fonts/Montserrat/Montserrat-Regular.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Oswald';
+  src: local('FrancoisOne'), url(./assets/fonts/Oswald/Oswald-Regular.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'FrancoisOne';
+  src: local('FrancoisOne'), url(./assets/fonts/Francois_One/FrancoisOne-Regular.ttf) format('truetype');
+} */
+#root{
+  min-height: 100vh;
+}
+/* html{
+  background-color: #f3f9f9;
+}
+body{
+  background-color: #f3f9f9;
+} */
+/* *{
+  font-size: .90rem;
+  letter-spacing: 1px;
+  font-family: 'Oswald',"Montserrat","FrancoisOne",sans-serif;
+} */
+/* h1{
+  margin-bottom: .5rem;
+  font-size: 2rem;
+  color: #495057;
+}
+h1 small{
+  color: #798892;
+  font-size: 70%;
+} */

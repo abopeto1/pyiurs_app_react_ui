@@ -1,0 +1,9 @@
+.transfer-tabs{
+    display: flex;
+    min-height: 100vh;
+}
+.transfer-tabs .ant-transfer-list{
+    flex-grow: 1;
+    min-height: 100vh;
+    margin: 8px;
+}

@@ -1,0 +1,1 @@
+export { FavouriteBrands } from './FavouriteBrands'
