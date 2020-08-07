@@ -37,7 +37,7 @@ const CartPayement = (props) => {
             val => setCart({
               ...cart,
               typePaiement:`/api/type_paiements/${val}`,
-              accompte:0,reste: val === 1 ? cart.net - cart.accompte : 0,
+              accompte:0,reste: val === 2 ? cart.net - cart.accompte : 0,
             })
           }
           style={{width:'50%'}} defaultValue={1}
@@ -46,7 +46,13 @@ const CartPayement = (props) => {
           <Select.Option value={2}>Crédit</Select.Option>
         </Select>
       </Col>
-      <Col span={24} style={{ ...style, display: cart.typePaiement === `/api/type_paiements/2` ? "flex" : "none",}}>
+      <Col
+        span={24}
+        style={{
+          ...style,
+          display: cart.typePaiement === `/api/type_paiements/2` ? "flex" : "none",
+        }}
+      >
         <div><strong>Accompte (En $)</strong></div>
         <div>
           <InputNumber
