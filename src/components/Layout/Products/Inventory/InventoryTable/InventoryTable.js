@@ -2,6 +2,8 @@
 import React from 'react'
 import moment from 'moment'
 import { Table } from '../../../../../utils'
+import { DeleteInventory } from './DeleteInventory'
+import Delete from '../../../../../react-redux/Entity/Delete'
 
 export const InventoryTable = (props) => {
     const { read, entities, status, page, setPage } = props
@@ -30,6 +32,11 @@ export const InventoryTable = (props) => {
                 id: inventory.id,
             },
         },
+        action: <Delete entityName="inventory" id={inventory.id}>
+            {
+                rest => <DeleteInventory { ...rest } read={read} />
+            }
+        </Delete>,
     })) : [
         {
             key: null,

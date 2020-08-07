@@ -38,7 +38,7 @@ export const Inventory = props => {
       </Row>
       <Row>
         <Col span={24}>
-          <ReadEntities entityName="inventory" params={{page: page, }}>
+          <ReadEntities entityName="inventory" params={{page: page, "order[created]": "desc", }}>
           {
               rProps => <InventoryTable { ...rProps } page={page} setPage={setPage} />
           }
