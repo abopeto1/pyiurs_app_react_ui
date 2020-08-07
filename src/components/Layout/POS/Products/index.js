@@ -6,6 +6,7 @@ import ReadEntities from '../../../../react-redux/Entity/Read/Entities'
 
 const Products = (props) => {
   const { Title } = Typography
+  const [page, setPage] = React.useState(1)
 
   return (
     <Row>
@@ -13,9 +14,12 @@ const Products = (props) => {
         <Title level={2}>Produits en Boutique</Title>
       </Col>
       <Col span={24}>
-        <ReadEntities entityName="product" params={{available:true}}>
+        <ReadEntities
+          entityName="product"
+          params={{ page: page, "stock.available":true, "type.segment.department": 1, }}
+        >
           {
-            productProps => <TableComponent { ...productProps } />
+            rest => <TableComponent { ...rest } setPage={setPage} page={page} />
           }
         </ReadEntities>
       </Col>
