@@ -18,7 +18,7 @@ export const ProductDetails = ({ billDetail, setBillDetail, ...props }) => {
                 <Row gutter={8}>
                     <Col xs={24} sm={8}>
                         <Form.Item vertical="true" label="Segment">
-                            <Text value={product && product.segment ? product.segment.name : ""} readOnly />
+                            <Text value={product.segment} readOnly />
                         </Form.Item>
                     </Col>
                     <Col xs={24} sm={8}>

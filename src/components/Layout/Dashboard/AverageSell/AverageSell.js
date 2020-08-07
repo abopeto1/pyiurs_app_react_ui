@@ -7,10 +7,10 @@ export const AverageSell = (props) => {
     const { Title } = Typography
     
     React.useEffect(read, [])
-
+    console.log(entity)
     const data = entity ? entity.value.map((e, i) => ({
         key: i, label: e.name, Moyenne: e.total,
-    })) : [{ key: 0, label: "", Moyenne: '' }]
+    })) : [{ key: null, label: null, Moyenne: null }]
 
     const loading = (status && status.isFetching) ? true : false
 

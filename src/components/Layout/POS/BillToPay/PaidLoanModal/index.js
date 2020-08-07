@@ -6,32 +6,43 @@ import { print } from '../../../../../utils'
 
 const PaidLoanModal = (props) => {
   const { entity, read, visible, setVisible, bill, status } = props
+
   const [cart,setCart] = useState({
-    total: 0, taxe: 0, net: 0, accompte: 0, reste: 0, clerk: "Admin",
-    customer: entity && entity.customer && entity.customer.id,typePaiement:3,
-    bill_reference:entity && entity.id, billDetails:[], operator: parseInt(sessionStorage.getItem('id')),
+    total: 0,
+    taxe: 0,
+    net: 0,
+    accompte: 0,
+    reste: 0,
+    customer: entity && entity.customer && `/api/customers/${entity.customer.id}`,
+    typePaiement:'/api/type_paiements/3',
+    billReference: entity ? `/api/bills/${entity.id}` : null,
+    operator: `/api/users/${sessionStorage.id}`,
   })
-  console.log(props);
   
   useEffect(read,[bill])
 
   const onReset = () => {
     setVisible(false)
     setCart({
-      total: 0, taxe: 0, net: 0, accompte: 0, reste: 0, clerk: "Admin", customer: entity && entity.customer && entity.customer.id,typePaiement:3,
-      bill_reference: entity ? entity.id : null, billDetails: [], operator: parseInt(sessionStorage.id),
+      total: 0,
+      taxe: 0, net: 0, accompte: 0, reste: 0,
+      customer: entity && entity.customer && `/api/customers/${entity.customer.id}`,
+      typePaiement:'/api/type_paiements/3',
+      billReference: entity ? `/api/bills/${entity.id}` : null,
+      operator: `/api/users/${sessionStorage.id}`,
     })
   }
-
+  
   const submit = (create) => {
     if(cart.customer === undefined){
       message.error("Erreur: Pas de Client dans la Facture")
-    } else if(cart.bill_reference === undefined) {
+    } else if(cart.billReference === undefined) {
       message.error("Erreur: Pas de Facture reference")
     } else if (!cart.net || cart.net === 0) {
       message.error("Erreur: Entrer le montant à payer")
     }  else {
       create(cart, {
+        api: true,
         onSuccess: (o) => {
           message.success("Paiement effectué avec succés")
           print(o.id, 'bill')
@@ -63,8 +74,8 @@ const PaidLoanModal = (props) => {
             onChange={
               (e) => setCart({
                 ...cart, net: parseFloat(e.target.value),
-                customer: entity && entity.customer && entity.customer.id,
-                bill_reference: entity && entity.id,
+                customer: entity && entity.customer && `/api/customers/${entity.customer.id}`,
+                billReference: entity && `/api/bills/${entity.id}`,
               })
             }
             />
