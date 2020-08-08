@@ -17,7 +17,7 @@ export const Table = ({ loading, data, entityName, pager, setPage, page, ...prop
     const [filterColumn, setFilterColumn] = React.useState("")
 
     const columns = setTableColumns(data, entityName, searchedText, setSearchedText, filterColumn, setFilterColumn)
-    const datas = !data || !data[0] || (data[0].key === null || data[0].key === undefined || data[0].key === 0) ? [] : data
+    const datas = !data || !data[0] || (data[0].key === null || data[0].key === undefined) ? [] : data
 
     return (
         <TableComponent

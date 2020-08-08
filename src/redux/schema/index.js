@@ -155,7 +155,7 @@ bilan_category.define({
 })
 
 bill.define({
-  customer, bill_details, bill: 'bill_reference', user: 'operator',
+  customer, bill_details, bill: 'billReference', user: 'operator',
 })
 
 bill_detail.define({

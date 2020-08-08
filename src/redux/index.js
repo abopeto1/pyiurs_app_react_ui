@@ -29,7 +29,7 @@ export const schema = {
     define: []
   },
   bill: {
-    define: ['customer', 'bill_details', { operator: 'user' }, { bill_reference: 'bill' }]
+    define: ['customer', 'bill_details', { operator: 'user' }, { billReference: 'bill' }]
   },
   bill_detail: {
     define: ['bill', 'product'],

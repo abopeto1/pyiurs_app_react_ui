@@ -9,7 +9,7 @@ export const AverageSell = (props) => {
     React.useEffect(read, [])
     console.log(entity)
     const data = entity ? entity.value.map((e, i) => ({
-        key: i, label: e.name, Moyenne: e.total,
+        key: i+1, label: e.name, Moyenne: e.total,
     })) : [{ key: null, label: null, Moyenne: null }]
 
     const loading = (status && status.isFetching) ? true : false
