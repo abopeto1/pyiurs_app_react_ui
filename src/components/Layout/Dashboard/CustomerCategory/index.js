@@ -1,0 +1,1 @@
+export { CustomerCategory } from './CustomerCategory'
