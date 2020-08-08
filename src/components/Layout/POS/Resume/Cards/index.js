@@ -1,8 +1,7 @@
 import React, {useEffect} from 'react'
 import './index.css'
 import { Col, Row, Card, Typography, Button, Spin, message, Input, Form, Grid } from 'antd'
-import { transformDateFormat } from '../../../../../utils'
-import { baseUrl } from '../../../../../redux/services/api'
+import { transformDateFormat, print } from '../../../../../utils'
 import CardComponent from '../Card'
 import TableComponent from './TableComponent'
 import CreateEntity from '../../../../../react-redux/Entity/Create'
@@ -48,7 +47,7 @@ const Cards = ({service, ...props}) => {
       onSuccess: (o) => {
         message.success("Cloture effectué avec succés")
         setForm({ operator: sessionStorage.id, theoric_cash: 0, comment: "", theoric_cash_cdf: 0, })
-        window.open(`${baseUrl}/cloture/pdf/${o.id}`)
+        print(o.id, 'cloture')
       },
       onFail: () => message.success("Erreur lors de la Cloture")
     })

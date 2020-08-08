@@ -10,7 +10,6 @@ const Sell = (props) => {
     total:0,taxe:0,net:0,accompte:0,reste:0,
     customer:null,
     typePaiement :'/api/type_paiements/1',
-    bill_reference:null,
     billDetails:[],
     operator: `/api/users/${sessionStorage.id}`,
   })

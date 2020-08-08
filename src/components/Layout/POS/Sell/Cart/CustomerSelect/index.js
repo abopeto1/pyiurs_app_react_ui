@@ -15,6 +15,7 @@ const CustomerSelect = (props) => {
     <div style={{display:"flex",justifyContent:"space-between"}}>
       <Select
         showSearch placeholder="Client"
+        defaultValue={null}
         onChange={val => setCart({ ...cart, customer: `/api/customers/${val}`})}
         style={{width:"100%"}} optionFilterProp="children"
         filterOption={(input, option) => option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}

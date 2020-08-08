@@ -8,8 +8,8 @@ import axios from 'axios';
 import { computeUrl } from '../utils';
 import { createBrowserHistory } from 'history';
 
-// export const baseUrl = "http://localhost/apipos/public"
-export const  baseUrl = "https://pyiursboutique.net/apipos/public"
+export const baseUrl = "http://localhost/apipos/public"
+// export const  baseUrl = "https://pyiursboutique.net/apipos/public"
 
 const api = async (method, action) => {
   const url = (action.options && action.options.api) || (action.params && action.params.api) ? 

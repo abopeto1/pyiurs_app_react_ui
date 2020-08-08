@@ -22,8 +22,11 @@ const Cart = (props) => {
         api: true,
         onSuccess: (created) => {
           setCart({
-            total:0,taxe:0,net:0,accompte:0,reste:0,customer:null,
-            typePaiement: `/api/type_paiments/1`,bill_reference:null,billDetails:[],
+            total:0,taxe:0,net:0,accompte:0,reste:0,
+            customer:null,
+            typePaiement: `/api/type_paiments/1`,
+            billDetails:[],
+            operator: `/api/users/${sessionStorage.id}`,
           })
           message.success("Vente efectuée avec succés")
           print(created.id, entityName)
@@ -50,7 +53,9 @@ const Cart = (props) => {
           <CartPayement cart={cart} setCart={setCart} />
         </Col>
         <Col span={24} style={{marginTop:"16px"}}>
-          <Button type="primary" onClick={() => confirmSell()} loading={status && status.isFetching}>Confirmer Vente</Button>
+          <Button type="primary" onClick={() => confirmSell()} loading={status && status.isFetching}>
+            Confirmer Vente
+          </Button>
           <Button type="danger" onClick={() => console.log('cancel')} disabled={status && status.isFetching} style={{marginLeft:'8px'}}>Annuler</Button>
         </Col>
       </Row>
