@@ -10,14 +10,12 @@ export const CustomerCategory = (props) => {
     
     const data = entities ? entities.map(e => ({
         key: e.id, label: e.name, clients: e.total_customer,
-    })) : [{key: 0, label: "", clients:''}]
-
-    const loading = (status && status.isFetching) ? true : false
+    })) : [{key: null, label: null, clients:null}]
 
     return (
         <div>
             <Title level={4}>Client par catégorie</Title>
-            <Table loading={loading} data={data} />
+            <Table loading={(status && status.isFetching) || false} data={data} />
         </div>
     )
 }

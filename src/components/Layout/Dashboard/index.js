@@ -82,7 +82,7 @@ const Dashboard = (props) => {
             </ReadEntities>
           </Col>
           <Col xs={24} sm={24} md={12}>
-            <ReadEntities entityName="customer_category">
+            <ReadEntities entityName="customer_category" params={{}}>
               {
                 cc => <CustomerCategory { ...cc} />
               }

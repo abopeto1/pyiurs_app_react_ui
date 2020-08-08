@@ -7,7 +7,7 @@ export const AverageSell = (props) => {
     const { Title } = Typography
     
     React.useEffect(read, [])
-    console.log(entity)
+    
     const data = entity ? entity.value.map((e, i) => ({
         key: i+1, label: e.name, Moyenne: e.total,
     })) : [{ key: null, label: null, Moyenne: null }]
