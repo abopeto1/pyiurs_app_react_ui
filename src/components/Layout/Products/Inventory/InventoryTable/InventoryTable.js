@@ -28,7 +28,7 @@ export const InventoryTable = (props) => {
         "non scannés": inventory.notScanned,
         linkedPage: {
             nom: {
-                pathname: "/stock/deliveries",
+                pathname: "/stock/inventories",
                 id: inventory.id,
             },
         },

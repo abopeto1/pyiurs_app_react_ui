@@ -10,9 +10,11 @@ const TableComponent = ({read,status,entities, ...props}) => {
     
     const data = entities && entities.length > 0 ? entities.map(d => ({
         key: d.id, date: transformDateFormat(d.created), code: d.code, montant: `${d.amount} ${d.currency}`,
-        "livré": d.deliveried ? "Oui" : "Non", linkedPage:{
-            pathname: `/stock/orders`,
-            dataIndex: "code",
+        "livré": d.deliveried ? "Oui" : "Non",
+        linkedPage:{
+            code: {
+                pathname: `/stock/orders`,
+            }
         }
     })): [{
         date:null,code:null,description:null,montant:null,"livré":null,

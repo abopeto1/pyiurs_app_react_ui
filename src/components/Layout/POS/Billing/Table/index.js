@@ -33,7 +33,7 @@ const TableComponent = (props) => {
               type="primary"
               icon={<PrinterOutlined />}
               shape="round" 
-              onClick={() => print(bill.key, entityName) }
+              onClick={() => print(bill.id, entityName) }
             />,
   })) : [{
     key: null,

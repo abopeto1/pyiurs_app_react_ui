@@ -12,15 +12,18 @@ const SearchForm = props => {
     const update = () => {
         setStatus(true)
         props.read({
+            api:true,
             onSuccess: d => {
                 const ip = d.find(p => !p.status)
-                if(!ip){
+                if(!ip) {
                     message.error("Produit non trouvé")
                     setStatus(false)
                     return
                 }
                 store.dispatch(
                     updateEntity('inventory_product',ip.id, {status: true}, {
+                        api: true,
+                        method: "PATCH",
                         onSuccess: dd => {
                             message.success("Produit Scanné avec succées")
                             setValue("")
@@ -29,7 +32,7 @@ const SearchForm = props => {
                         },
                         onFail: e => {
                             message.error("Produit non trouvé")
-                            console.log("Error " + e)
+                            console.log("Error :" + e)
                             setStatus(false)
                         }
                     })

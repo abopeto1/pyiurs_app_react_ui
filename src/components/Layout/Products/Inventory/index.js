@@ -11,6 +11,7 @@ export const Inventory = props => {
   const { Title } = Typography
   const create = p => {
     p.create({},{
+      api: true,
       onSuccess: (c) => {
         message.success("Inventaire crée avec succées")
       },
@@ -22,7 +23,7 @@ export const Inventory = props => {
   
   return (
     <div>
-      <Row gutter={[8,8]} style={{alignItems: 'center',justifyContent:"space-between",}}>
+      <Row gutter="8" style={{alignItems: 'center',justifyContent:"space-between",}}>
         <Col span={18}>
           <Title level={2}>Inventaire</Title>
         </Col>

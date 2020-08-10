@@ -8,10 +8,21 @@ import SelectType from './SelectType'
 
 const Process = (props) => {
     const { Title } = Typography
-    const { read, entity, status } = props
+    
+    const { read, entity, status, id } = props
+    
     const [types, setTypes] = useState([])
     const [value, setValue] = useState("")
-    useEffect(read,[])
+
+    useEffect(
+        () => {
+            function fetch(){
+                read({ api: true, })
+            }
+            fetch()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        },[]
+    )
     
     const data = entity ? entity : {}
 
@@ -32,7 +43,7 @@ const Process = (props) => {
                     </Title>
                 </Col>
                 <Col  sm={24} md={12}>
-                    <ReadEntities entityName="type">
+                    <ReadEntities entityName="type" params={{}}>
                         {
                             rProps => <SelectType { ...rProps } setTypes={setTypes} />
                         }
@@ -41,7 +52,11 @@ const Process = (props) => {
                 <Col xs={24}>
                     <ReadEntities 
                         entityName="inventory_product"
-                        params={{codebarre: value, types: types, inventory: entity && entity.id}}
+                        params={{
+                            "product.codebarre": value,
+                            "product.type": types,
+                            inventory: entity && entity.id,
+                        }}
                     >
                         {
                             rest => <SearchToUpdateForm
@@ -51,7 +66,7 @@ const Process = (props) => {
                     </ReadEntities>
                     <CheckProduct
                         products={data.inventory_products ?? []} types={types} value={value}
-                                inventoryId={entity && entity.id} setValue={setValue}
+                                inventoryId={id} setValue={setValue}
                     />
                 </Col>
             </Row>

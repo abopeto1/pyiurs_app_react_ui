@@ -20,12 +20,14 @@ export const computeUrl = (method, action) => {
   if (method === 'POST' && action.meta.entityName === 'user') {
     return `auth-tokens`;
   }
+  
   if (action.type.includes('ADD') || action.type.includes('REMOVE')) {
     const {
       parentName, entityName, parentId, entityIds,
     } = action.meta;
     return `${parentName}/${parentId}/${entityName}/${entityIds}`;
   }
+
   if (method === 'GET' && action.meta.type === 'multi') {
     if(action.params.parentName && action.params.parentId){
       const parentName = action.params.parentName.endsWith('y') ? 

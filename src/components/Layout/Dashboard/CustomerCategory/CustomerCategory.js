@@ -1,21 +1,24 @@
 import React from 'react'
-import { Table } from '../../../../utils'
-import { Typography } from 'antd'
+import { Card } from 'antd'
+import { RadialChart } from 'react-vis'
 
 export const CustomerCategory = (props) => {
     const { read, entities, status } = props
-    const { Title } = Typography
 
     React.useEffect(read,[])
-    
-    const data = entities ? entities.map(e => ({
-        key: e.id, label: e.name, clients: e.total_customer,
-    })) : [{key: null, label: null, clients:null}]
+
+    const datas = entities ? entities.map(c => ({
+        angle: c.total_customer/ entities.reduce((a,i) => a + i.total_customer, 0),
+        subLabel: c.name,
+
+    })) : []
 
     return (
-        <div>
-            <Title level={4}>Client par catégorie</Title>
-            <Table loading={(status && status.isFetching) || false} data={data} />
-        </div>
+        <Card title="Client par catégorie" loading={status && status.isFetching}>
+            <RadialChart
+                data={datas} width={300} height={300}
+                animation showLabels
+            />
+        </Card>
     )
 }
