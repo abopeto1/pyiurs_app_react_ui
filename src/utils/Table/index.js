@@ -33,7 +33,7 @@ export const Table = ({ loading, data, entityName, pager, setPage, page, ...prop
                         current: page,
                         total: pager.total_items,
                         showTotal: () => `${pager.total_items} items`,
-                        onChange: (val) => {console.log(val);setPage(val);},
+                        onChange: (val) => setPage(val),
                     } : false 
             }
         />

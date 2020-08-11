@@ -3,7 +3,7 @@ import { Typography } from 'antd'
 import { Table } from '../../../../../../../../utils'
 
 export const ProductsTable = props => {
-    const { pagination, status, read, entities, page, types } = props
+    const { pagination, status, read, entities, page, types, reload } = props
 
     React.useEffect(
         () => {
@@ -14,14 +14,14 @@ export const ProductsTable = props => {
             }
             fetch()
         // eslint-disable-next-line react-hooks/exhaustive-deps
-        },[page, types,]
+        },[page, types, reload]
     )
     const data = entities && entities.length > 0 ? entities.map(inventory_product => ({
         codebarre: inventory_product.product.codebarre,
-        segment:inventory_product.product.segment,
-        type:inventory_product.product.type.name,
+        segment: inventory_product.product.segment,
+        type: inventory_product.product.type && inventory_product.product.type.name,
         categorie: inventory_product.product.cat,
-        key:inventory_product.id,
+        key: inventory_product.id,
     })) : [{
         codebarre: null,
         segment: null,
@@ -38,7 +38,7 @@ export const ProductsTable = props => {
             <Table
                 loading={(status && status.isFetching) || false}
                 data={data}
-                pager={pagination}
+                pager={pagination} page={page} setPage={props.setPage}
             />
         </>
     )

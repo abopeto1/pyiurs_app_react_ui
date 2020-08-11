@@ -8,11 +8,12 @@ import SelectType from './SelectType'
 
 const Process = (props) => {
     const { Title } = Typography
-    
+
     const { read, entity, status, id } = props
     
     const [types, setTypes] = useState([])
     const [value, setValue] = useState("")
+    const [reload, setReload] = useState(false)
 
     useEffect(
         () => {
@@ -56,17 +57,21 @@ const Process = (props) => {
                             "product.codebarre": value,
                             "product.type": types,
                             inventory: entity && entity.id,
+                            status: false,
                         }}
                     >
                         {
                             rest => <SearchToUpdateForm
                                 value={value} setValue={setValue} types={types} {...rest }
+                                reload={reload} setReload={setReload}
                             />
                         }
                     </ReadEntities>
                     <CheckProduct
-                        products={data.inventory_products ?? []} types={types} value={value}
-                                inventoryId={id} setValue={setValue}
+                        products={data.inventory_products ?? []}
+                        types={types} value={value}
+                        inventoryId={id} setValue={setValue}
+                        reload={reload}
                     />
                 </Col>
             </Row>

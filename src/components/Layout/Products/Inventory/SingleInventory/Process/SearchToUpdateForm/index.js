@@ -28,6 +28,7 @@ const SearchForm = props => {
                             message.success("Produit Scanné avec succées")
                             setValue("")
                             ref.current.focus()
+                            props.setReload(!props.reload)
                             setStatus(false)
                         },
                         onFail: e => {
