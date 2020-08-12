@@ -6,7 +6,6 @@ import TableComponent from './TableComponent'
 export const DeliveryDetails = (rest) => {
     const {id} = useParams()
     const { state } = rest.location
-    console.log(rest);
 
     return (
         <div style={{padding:"8px"}}>

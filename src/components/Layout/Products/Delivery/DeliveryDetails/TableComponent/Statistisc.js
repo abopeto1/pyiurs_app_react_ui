@@ -26,7 +26,7 @@ export const DeliveryStatistics = ({delivery}) => {
         {
             title: "Taux de rentabilité",
             description: "",
-            value: delivery ? delivery.benefits + ' %' : "",
+            value: delivery && delivery.benefitMarge ? delivery.benefitMarge + ' %' : "",
         },
     ]
     return (

@@ -27,7 +27,10 @@ const Cart = (props) => {
       create(cart, {
         onSuccess: (created) => {
           console.log(created)
-          setCart({total:0,taxe:0,net:0,accompte:0,reste:0,clerk:"Admin",customer:null,typePaiement:4,bill_reference:null,billDetails:[],})
+          setCart({
+            total:0,taxe:0,net:0,accompte:0,reste:0,
+            customer:null,typePaiement:4,billReference:null,billDetails:[],
+          })
           message.success("Echange efectuée avec succés")
           window.open(`${baseUrl}/bill/pdf/${created.id}`)
         },

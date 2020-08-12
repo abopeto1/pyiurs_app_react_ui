@@ -1,6 +1,5 @@
-import React from 'react'
+import React, { lazy } from 'react'
 import { UserOutlined, ShoppingOutlined } from '@ant-design/icons'
-import Dashboard from '../components/Layout/Dashboard'
 import POS from '../components/Layout/POS'
 import Sell from '../components/Layout/POS/Sell'
 import Billing from '../components/Layout/POS/Billing'
@@ -14,6 +13,8 @@ import * as Stock from '../components/Layout/Products'
 import * as Budget from '../components/Layout/Budget'
 import Login from '../components/Login'
 import { Appointment } from '../components/Layout/POS/Appointment'
+
+const Dashboard = lazy(() => import('../components/Layout/Dashboard'))
 
 export const routes = [
     { name: "Accueil", path: "/", component: Dashboard, exact: true, roles: ["ROLE_USER",], },
