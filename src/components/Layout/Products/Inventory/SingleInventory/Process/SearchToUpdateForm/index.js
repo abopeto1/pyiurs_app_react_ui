@@ -23,13 +23,12 @@ const SearchForm = props => {
                 store.dispatch(
                     updateEntity('inventory_product',ip.id, {status: true}, {
                         api: true,
-                        method: "PATCH",
                         onSuccess: dd => {
                             message.success("Produit Scanné avec succées")
                             setValue("")
-                            ref.current.focus()
-                            props.setReload(!props.reload)
+                            props.setReload(value)
                             setStatus(false)
+                            ref.current.focus()
                         },
                         onFail: e => {
                             message.error("Produit non trouvé")

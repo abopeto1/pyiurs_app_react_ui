@@ -13,7 +13,7 @@ const Process = (props) => {
     
     const [types, setTypes] = useState([])
     const [value, setValue] = useState("")
-    const [reload, setReload] = useState(false)
+    const [reload, setReload] = useState(null)
 
     useEffect(
         () => {

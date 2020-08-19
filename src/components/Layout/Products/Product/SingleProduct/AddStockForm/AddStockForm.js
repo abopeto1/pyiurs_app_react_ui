@@ -23,7 +23,7 @@ export const AddStockForm = ({ update, status, ...props }) => {
             message.error("Code Livraison Obligatoire")
         } else {
             update(form, {
-                api: true, method: "PATCH",
+                api: true,
                 onSuccess: (d) => {
                     message.success(`Stock ajouté avec succés`)
                     onReset()

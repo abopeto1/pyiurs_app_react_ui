@@ -12,7 +12,8 @@ const Resume = (props) => {
   },0) : 0
 
   const creditTotal = credits ? credits.filter(
-    d => d.type === "bank" && moment(d.created).format('YYYYMM') === moment(new Date()).format('YYYYMM')).reduce((acc,item) => {
+      d => (d.type === "bank" || d.type === "divers")&& moment(d.created).format('YYYYMM') === moment(new Date()).format('YYYYMM')
+    ).reduce((acc,item) => {
     return item.currency === "CDF" ? acc + (parseFloat(item.amount)/parseFloat(item.taux)) :
       item.currency === "EUR" ? acc + (parseFloat(item.amount)*parseFloat(item.tauxEuro)) : acc + parseFloat(item.amount)
   },0) : 0

@@ -1,1 +1,3 @@
-export {Appointment} from './Appointment'
+import {Appointment} from './Appointment'
+
+export default Appointment

@@ -17,14 +17,14 @@ export const BillDetails = ({ cart, setCart, ...props }) => {
       title:"Action",
       render:(d,t) => (
       <Button type={t.rs === true ? "danger" : "primary"} onClick={() => setCart({
-        ...cart,bill_reference:{...cart.bill_reference,bill_details:cart.bill_reference.bill_details.map(bd => {
+        ...cart,billReference:{...cart.billReference,bill_details:cart.billReference.bill_details.map(bd => {
           return bd.id === t.key ? { ...bd, rs:!bd.rs } : bd
         })}
       })}>{t.rs === true ? "Retirer" : "Ajouter"}</Button>
     ),},
   ]
 
-  const data = cart.bill_reference !== null && cart.bill_reference.bill_details.length > 0 ? cart.bill_reference.bill_details.map((d) =>
+  const data = cart.billReference !== null && cart.billReference.bill_details.length > 0 ? cart.billReference.bill_details.map((d) =>
     ({key:d.id, description:d.product.description, net:d.net, rs:d.rs, codebarre: d.product.codebarre })
   ) : []
 

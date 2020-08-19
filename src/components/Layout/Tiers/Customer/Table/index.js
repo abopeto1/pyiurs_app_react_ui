@@ -15,8 +15,9 @@ const TableComponent = (props) => {
     categorie: c.categorie ? c.categorie.name : "",
     key:c.id,
     linkedPage: {
-      pathname: `/tiers/customers`,
-      dataIndex: "nom",
+      nom: {
+        pathname: `/tiers/customers`,
+      }
     }
   })) : [{ nom: null, telephone: null, points: null, date: null, categorie: null, key: null, }]
 

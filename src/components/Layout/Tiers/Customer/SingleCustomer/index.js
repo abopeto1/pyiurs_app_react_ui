@@ -2,7 +2,7 @@ import React from 'react'
 import { SingleCustomer as Customer } from './SingleCustomer'
 import Entity from '../../../../../react-redux/Entity/Read/Entity'
 
-export const SingleCustomer = ({ match, ...props}) => {
+const SingleCustomer = ({ match, ...props}) => {
     return (
         <div style={{ padding: '20px', }}>
             {
@@ -17,3 +17,5 @@ export const SingleCustomer = ({ match, ...props}) => {
         </div>
     )
 }
+
+export default SingleCustomer

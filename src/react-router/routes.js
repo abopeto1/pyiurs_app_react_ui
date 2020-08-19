@@ -1,25 +1,31 @@
 import React, { lazy } from 'react'
 import { UserOutlined, ShoppingOutlined } from '@ant-design/icons'
-import POS from '../components/Layout/POS'
-import Sell from '../components/Layout/POS/Sell'
-import Billing from '../components/Layout/POS/Billing'
-import BillToPay from '../components/Layout/POS/BillToPay'
-import SellProducts from '../components/Layout/POS/Products'
-import SellResume from '../components/Layout/POS/Resume'
 import * as Tiers from '../components/Layout/Tiers'
 import { ChangeProduct, AllReports, ExpenceReports } from '../components/Layout/Reports'
 import { Resume as CashResume, Expence, Credit, Debit, AgentLoan } from '../components/Layout/Cash'
 import * as Stock from '../components/Layout/Products'
 import * as Budget from '../components/Layout/Budget'
-import Login from '../components/Login'
-import { Appointment } from '../components/Layout/POS/Appointment'
 
+const Login = lazy(() => import('../components/Login'))
 const Dashboard = lazy(() => import('../components/Layout/Dashboard'))
+
+// POS Page
+const Sell = lazy(() => import('../components/Layout/POS/Sell'))
+const Appointment = lazy(() => import('../components/Layout/POS/Appointment'))
+const Billing = lazy(() => import('../components/Layout/POS/Billing'))
+const BillToPay = lazy(() => import('../components/Layout/POS/BillToPay'))
+const SellProducts = lazy(() => import('../components/Layout/POS/Products'))
+const SellResume = lazy(() => import('../components/Layout/POS/Resume'))
+
+// Tiers Page
+const Agent = lazy(() => import('../components/Layout/Tiers/Agent'))
+const Customer = lazy(() => import('../components/Layout/Tiers/Customer'))
+const SingleCustomer = lazy(() => import('../components/Layout/Tiers/Customer/SingleCustomer'))
 
 export const routes = [
     { name: "Accueil", path: "/", component: Dashboard, exact: true, roles: ["ROLE_USER",], },
     {
-        name: "Vente", path: "/pos", component: POS, roles: ["ROLE_USER",], exact: true, routes:[
+        name: "Vente", path: "/pos", roles: ["ROLE_USER",], routes:[
             { name: 'Vente', component: Sell, path: "/", exact: true, },
             { name: 'Rendez-Vous', component: Appointment, path:"/appointments", exact: true,},
             { name: 'Facturation', component: Billing, path: "/bills", exact: true, },
@@ -30,10 +36,10 @@ export const routes = [
     },
     {
         name: "Tiers", path: '/tiers', roles: ["ROLE_ADMIN"], routes: [
-            { name: 'Clients', component: Tiers.Customer, path: "", exact: true, icon: <UserOutlined />, },
-            { name: 'Produit Cosmétique', component: Tiers.SingleCustomer, path: "/customers/:id", exact: true, nested: true, },
+            { name: 'Clients', component: Customer, path: "", exact: true, icon: <UserOutlined />, },
+            { name: 'Produit Cosmétique', component: SingleCustomer, path: "/customers/:id", exact: true, nested: true, },
             { name: 'Fournisseurs', component: Tiers.Provider, path: "/providers", exact: true, icon: <UserOutlined />, },
-            { name: 'Personnel', component: Tiers.Agent, path: "/agents", exact: true, icon: <UserOutlined />, },
+            { name: 'Personnel', component: Agent, path: "/agents", exact: true, icon: <UserOutlined />, },
         ],
     },
     {

@@ -26,7 +26,7 @@ export const SingleProduct = ({ entity, read, status, ...props }) => {
                 </Update>
             </Col>
             <Col xs={24} sm={14}>
-                <ProductMovements id={props.id} />
+                <ProductMovements id={props.id} readproducts={read} />
             </Col>
             <Col xs={24} sm={10}>
                 <ProductDetails entity={entity} id={props.id} status={status} />

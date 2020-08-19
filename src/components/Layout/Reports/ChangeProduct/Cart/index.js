@@ -15,7 +15,7 @@ const Cart = (props) => {
   const [product,setProduct] = useState(null)
 
   const confirmSell = () => {
-    if(cart.bill_reference === null){
+    if(cart.billReference === null){
       message.error("Aucune facture à échanger")
     } else if (props.changeTotal === null || props.changeTotal === 0) {
       message.error("Le total à échanger ne peut pas être nul")
