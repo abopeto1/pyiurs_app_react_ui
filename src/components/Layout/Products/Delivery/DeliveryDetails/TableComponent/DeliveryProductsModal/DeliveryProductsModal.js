@@ -4,7 +4,6 @@ import { Table } from '../../../../../../../utils'
 // import ExportToExcel from '../../../../../../../utils'
 
 export const DeliveryProductsModal = ({open, setOpen, read, status, entities, params, page,  ...props}) => {
-    const { required } = props 
     React.useEffect(() => {
         function fetch(){
             read({
@@ -13,7 +12,7 @@ export const DeliveryProductsModal = ({open, setOpen, read, status, entities, pa
         }
         fetch()
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [page, required])
+    }, [page, open])
 
     const data = entities ? entities.map(product => ({
         key: product.id,

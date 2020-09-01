@@ -2,7 +2,7 @@
 import React from 'react'
 import { Row, Col, Typography, Button,DatePicker } from 'antd'
 // import { UserAddOutlined } from '@ant-design/icons'
-import TableComponent from './Table'
+import TableComponent from '../../../Cash/Expence/Table'
 import ReadEntities from '../../../../../react-redux/Entity/Read/Entities'
 
 const SellReport = (props) => {

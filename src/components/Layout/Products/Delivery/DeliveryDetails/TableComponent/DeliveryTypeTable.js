@@ -6,7 +6,7 @@ export const DeliveryTypeTable = ({ status, read, entities, page, setPage, setOp
         props.setModalParams({
             ...props.modalParams,
             type: id,
-            required: params,
+            ...params,
         })
         setOpen(true)
     }
@@ -21,7 +21,13 @@ export const DeliveryTypeTable = ({ status, read, entities, page, setPage, setOp
         "En Boutique": type.details ? type.details.totalShop : "",
         modals:{
             total:{
-                tag: true, onClick: () => modalAction(type.id, {}),
+                tag: true,
+                onClick: () => modalAction(
+                    type.id,
+                    {
+                        moveStatus: null, "stock.available": null,
+                    }
+                ),
                 color: "#108ee9",
             },
             "Non Chargés": {

@@ -4,7 +4,6 @@ import ReadEntities from '../../../../../react-redux/Entity/Read/Entities'
 import CreateEntity from '../../../../../react-redux/Entity/Create'
 import SelectProvider from './SelectProvider'
 import SelectExpenceCompte from './SelectExpenceCompte'
-import { baseUrl } from '../../../../../redux/services/api'
 
 const CreateForm = (props) => {
   const [form,setForm] = React.useState({
@@ -40,7 +39,6 @@ const CreateForm = (props) => {
         onSuccess: (o) => {
           onReset()
           info("Dépense créee avec succés")
-          window.open(`${baseUrl}/expence/pdf/${o.id}`)
         }
       })
     }
