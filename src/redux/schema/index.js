@@ -48,6 +48,9 @@ const customers = new schema.Array(customer)
 const customer_category = new schema.Entity('customer_category')
 const customer_categories = new schema.Array(customer_category)
 
+const commission = new schema.Entity('commission')
+const commissions = new schema.Array(commission)
+
 const dashboard = new schema.Entity('dashboard')
 const dashboards = new schema.Array(dashboard)
 
@@ -133,7 +136,7 @@ const warehouse = new schema.Entity('warehouse');
 const warehouses = new schema.Array(warehouse);
 
 agent.define({
-  customer, agent_loans, appointments, 
+  customer, agent_loans, appointments, commissions,
 })
 
 agent_loan.define({
@@ -172,6 +175,10 @@ cashin.define({
 
 credit.define({
   provider,
+})
+
+commission.define({
+  agent,
 })
 
 expence_compte_category.define({
@@ -312,6 +319,7 @@ export default {
   credit, credits,
   customer, customers,
   customer_category, customer_categories,
+  commission, commissions,
   dashboard, dashboards,
   debit, debits,
   debit_echeance, debit_echeances,

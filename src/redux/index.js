@@ -11,7 +11,7 @@ import { computeSchema } from './utils';
 // and the value being the entity name
 export const schema = {
   agent: {
-    define: [{ customer_account: 'customer' }, 'agent_loans', 'appointments']
+    define: [{ customer_account: 'customer' }, 'agent_loans', 'appointments', 'commissions']
   },
   agent_loan: {
     define: ['agent'],
@@ -48,6 +48,9 @@ export const schema = {
   },
   cloture_month: {
     define: ['user',]
+  },
+  commission:{
+    define: ['agent']
   },
   credit: {
     define: ['provider'],
@@ -122,8 +125,17 @@ export const schema = {
   promotion_type: {
     define: ['promotions']
   },
+  provider: {
+    define: ['expences','credits','cashins','debits'],
+  },
   segment: {
     define: ['types', { department: 'product_department'}],
+  },
+  stock_log: {
+    define:[]
+  },
+  taux: {
+    define: []
   },
   type: {
     define: ['segment','products'],
@@ -136,15 +148,6 @@ export const schema = {
   },
   warehouse: {
     define: ['products'],
-  },
-  provider: {
-    define: ['expences','credits','cashins','debits'],
-  },
-  stock_log: {
-    define:[]
-  },
-  taux: {
-    define: []
   },
 };
 

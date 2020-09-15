@@ -22,6 +22,9 @@ const Agent = lazy(() => import('../components/Layout/Tiers/Agent'))
 const Customer = lazy(() => import('../components/Layout/Tiers/Customer'))
 const SingleCustomer = lazy(() => import('../components/Layout/Tiers/Customer/SingleCustomer'))
 
+// Reports
+const Commission = lazy(() => import('../components/Layout/Reports/Commission'))
+
 export const routes = [
     { name: "Accueil", path: "/", component: Dashboard, exact: true, roles: ["ROLE_USER",], },
     {
@@ -47,6 +50,7 @@ export const routes = [
             { name: 'Echange Produit', component: ChangeProduct, path: "", icon: ShoppingOutlined, exact: true, },
             { name: 'Rapports Vente', component: AllReports, path: "/all-reports", exact: true, },
             { name: 'Rapports Dépense', component: ExpenceReports, path: "/expence-reports", exact: true, },
+            { name: 'Commission Agents', component: Commission, path: "/commissions", exact: true, },
         ]
     },
     {

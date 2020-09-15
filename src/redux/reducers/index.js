@@ -31,6 +31,7 @@ const entities = combineReducers({
   cashin: getReducers('cashin'),
   cloture: getReducers('cloture'),
   cloture_month: getReducers('cloture_month'),
+  commission: getReducers('commission'),
   credit: getReducers('credit'),
   customer: getReducers('customer'),
   customer_category: getReducers('customer_category'),

@@ -8,7 +8,7 @@ import axios from 'axios';
 import { computeUrl } from '../utils';
 import { createBrowserHistory } from 'history';
 
-export const baseUrl = process.env.NODE_ENV !== 'production' ? "http://localhost/apipos/public"
+export const baseUrl = process.env.NODE_ENV !== 'production' ? "http://localhost:8000"
 : "https://pyiursboutique.net/apipos/public"
 
 const api = async (method, action) => {

@@ -10,7 +10,16 @@ const EditableTable = (props) => {
     name: null, description: null, weight: null, agency: null,
   })
   const columns = [
-    {title:"Type",dataIndex:"type",editable:true,},{title:"Catégorie",dataIndex:"cat",editable:true,},
+    {
+      title:"Type",
+      dataIndex:"postType",
+      editable:true,
+    },
+    {
+      title:"Catégorie",
+      dataIndex:"cat",
+      editable:true,
+    },
     {title:"Codebarre",dataIndex:"codebarre",editable:true,},
     {title:"Taille",dataIndex:"taille",editable:true,},{title:"PU",dataIndex:"pu",editable:true,},
     {title:"Couleur",dataIndex:"couleur",editable:true,},{title:"Marque",dataIndex:"marque",editable:true,},

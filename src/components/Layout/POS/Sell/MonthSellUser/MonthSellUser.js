@@ -1,8 +1,9 @@
 import React from 'react'
+import Entities from '../../../../../react-redux/Entity/Read/Entities'
+import { SellerCommission } from './SellerCommission'
 
 export const MonthSellUser = (props) => {
     const { read, entity } = props
-    const roles = sessionStorage.roles ? sessionStorage.roles.split(',') : []
     
     React.useEffect(read, [])
 
@@ -12,16 +13,11 @@ export const MonthSellUser = (props) => {
             justifyContent: 'space-around',
             }}>
             <h3 style={{ color: 'white', }}>Mes Ventes : {entity && Math.round(entity.total_sell_month)}</h3>
-            <h3 style={{ color: 'white', }}>Ma Commission:
-            {
-                roles.includes('ROLE_ADMIN') 
-                ? 
-                    (
-                        entity && Math.round(entity.total_sell_month*0.01)
-                    )
-                : 0
-            }
-            </h3>
+            <Entities entityName="agent" params={{ "user.id": sessionStorage.id}}>
+                {
+                    rest => <SellerCommission {...rest} />
+                }
+            </Entities>
         </div>
     )
 }
