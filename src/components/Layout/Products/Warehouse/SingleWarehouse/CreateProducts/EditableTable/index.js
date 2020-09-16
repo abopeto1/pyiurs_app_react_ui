@@ -43,7 +43,7 @@ const EditableTable = (props) => {
       },{
         api:true,
         onSuccess: d => {
-          message.success(`${d.products.length} Produits Ajoutés`)
+          message.success(`${d.totalProducts} Produits Ajoutés`)
           setData([])
           setDelivery({name: null, description: null, weight: null, agency: null,})
         },

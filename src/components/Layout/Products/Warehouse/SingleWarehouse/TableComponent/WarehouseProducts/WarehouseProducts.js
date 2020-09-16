@@ -21,7 +21,7 @@ export const WarehouseProducts = props => {
         type: product.type.name,
         segment: product.segment,
         "catégorie": product.cat,
-        "code Livraison": product.delivery.name,
+        "code Livraison": product.delivery && product.delivery.name,
         taille: product.taille,
         couleur: product.couleur,
         marque: product.marque,
